@@ -41,6 +41,7 @@ namespace EyeAttend.Controllers
                 .Include(s => s.Course)
                 .Include(s => s.Profile)
                 .Include(s => s.SessionYear)
+                .Include(s => s.StudentPhoto)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
@@ -71,7 +72,7 @@ namespace EyeAttend.Controllers
                 // 1. Save the image files (if any)
                 if (imageFiles != null && imageFiles.Count > 0)
                 {
-                    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                    var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/" + student.ProfileID + "/" + student.Username);
                     Directory.CreateDirectory(uploadsFolder); // Ensure directory exists
 
                     foreach (var imageFile in imageFiles)
@@ -95,6 +96,8 @@ namespace EyeAttend.Controllers
                 }
 
                 // 2. Save the student data (including images)
+                student.CreatedAt = DateTime.Now;
+                student.UpdatedAt = DateTime.Now;
                 _context.Add(student);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -115,23 +118,26 @@ namespace EyeAttend.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Students.FindAsync(id);
+            var student = await _context.Students
+                .Include(s => s.Profile)
+                .Include(s => s.SessionYear)
+                .Include(s => s.Course)
+                .Include(s => s.StudentPhoto) // Eager load photos
+                .FirstOrDefaultAsync(m => m.Id == id);
+
             if (student == null)
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseName", student.CourseId);
-            ViewData["ProfileID"] = new SelectList(_context.Profiles, "ProfileID", "ProfileName", student.ProfileID);
-            ViewData["SessionYearId"] = new SelectList(_context.SessionYears, "Id", "Id", student.SessionYearId);
+
+            PopulateDropDownLists(student); // Move to after fetching the student
             return View(student);
         }
 
         // POST: Students/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Password,FirstName,LastName,Username,Address,ProfileID,Gender,SessionYearId,CourseId,CreatedAt,UpdatedAt")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Password,FirstName,LastName,Username,Address,ProfileID,Gender,SessionYearId,CourseId,CreatedAt,UpdatedAt")] Student student, IFormFile[] imageFiles)
         {
             if (id != student.Id)
             {
@@ -142,8 +148,37 @@ namespace EyeAttend.Controllers
             {
                 try
                 {
+                    // 1. Handle Image Uploads (if any)
+                    if (imageFiles != null && imageFiles.Length > 0)
+                    {
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", student.ProfileID.ToString(), student.Username);
+                        Directory.CreateDirectory(uploadsFolder);
+
+                        foreach (var imageFile in imageFiles)
+                        {
+                            if (imageFile.Length > 0)
+                            {
+                                var fileName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
+                                var filePath = Path.Combine(uploadsFolder, fileName);
+                                using (var stream = new FileStream(filePath, FileMode.Create))
+                                {
+                                    await imageFile.CopyToAsync(stream);
+                                }
+
+                                student.StudentPhoto.Add(new StudentPhoto
+                                {
+                                    ImageURL = fileName // Store filename only
+                                });
+                            }
+                        }
+                    }
+                    // Set Updated at to current time
+                    student.UpdatedAt = DateTime.Now;
+
+                    // 2. Update Student Record
                     _context.Update(student);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -156,11 +191,8 @@ namespace EyeAttend.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseName", student.CourseId);
-            ViewData["ProfileID"] = new SelectList(_context.Profiles, "ProfileID", "ProfileName", student.ProfileID);
-            ViewData["SessionYearId"] = new SelectList(_context.SessionYears, "Id", "Id", student.SessionYearId);
+            PopulateDropDownLists(student);
             return View(student);
         }
 
@@ -190,6 +222,7 @@ namespace EyeAttend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //var studentPhoto = await _context.StudentPhotos.FindAsync(id);
             var student = await _context.Students.FindAsync(id);
             if (student != null)
             {
@@ -203,6 +236,13 @@ namespace EyeAttend.Controllers
         private bool StudentExists(int id)
         {
             return _context.Students.Any(e => e.Id == id);
+        }
+
+        private void PopulateDropDownLists(Student student)
+        {
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseName", student.CourseId);
+            ViewData["ProfileID"] = new SelectList(_context.Profiles, "ProfileID", "ProfileName", student.ProfileID);
+            ViewData["SessionYearId"] = new SelectList(_context.SessionYears, "Id", "Id", student.SessionYearId);
         }
     }
 }

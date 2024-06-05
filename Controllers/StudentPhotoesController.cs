@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EyeAttend.Data;
 using EyeAttend.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace EyeAttend.Controllers
 {
@@ -88,7 +90,7 @@ namespace EyeAttend.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Students", "Index");
         }
 
         // GET: StudentPhotoes/Edit/5
@@ -168,14 +170,19 @@ namespace EyeAttend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var studentPhoto = await _context.StudentPhotos.FindAsync(id);
+            var studentPhoto = await _context.StudentPhotos.Include(s => s.Student).FirstOrDefaultAsync(m => m.Id == id);
+            var profileId = studentPhoto.Student.ProfileID;
+            var username = studentPhoto.Student.Username;
+            var fileName = Path.GetFileName(studentPhoto.ImageURL);
+            var ExitingFile = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/" + profileId + "/" + username + "/", fileName);
             if (studentPhoto != null)
             {
+                System.IO.File.Delete(ExitingFile);
                 _context.StudentPhotos.Remove(studentPhoto);
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Students", "Index");
         }
 
         private bool StudentPhotoExists(int id)

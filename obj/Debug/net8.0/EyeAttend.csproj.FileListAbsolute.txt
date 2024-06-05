@@ -515,3 +515,4 @@ C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\ref\EyeAttend.dll
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\scopedcss\projectbundle\EyeAttend.bundle.scp.css
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\EyeAttend.sourcelink.json

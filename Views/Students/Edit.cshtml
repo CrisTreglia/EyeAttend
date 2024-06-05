@@ -5,12 +5,11 @@
 }
 
 <h1>Edit</h1>
-
 <h4>Student</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -45,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProfileID" class="control-label"></label>
-                <select asp-for="ProfileID" class="form-control" asp-items="ViewBag.ProfileID"></select>
+                <select asp-for="ProfileID" class="form-control" asp-items="@(ViewData["ProfileID"] as SelectList)"></select>
                 <span asp-validation-for="ProfileID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,24 +54,40 @@
             </div>
             <div class="form-group">
                 <label asp-for="SessionYearId" class="control-label"></label>
-                <select asp-for="SessionYearId" class="form-control" asp-items="ViewBag.SessionYearId"></select>
+                <select asp-for="SessionYearId" class="form-control" asp-items="@(ViewData["SessionYearId"] as SelectList)"></select>
                 <span asp-validation-for="SessionYearId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CourseId" class="control-label"></label>
-                <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <select asp-for="CourseId" class="form-control" asp-items="@(ViewData["CourseId"] as SelectList)"></select>
                 <span asp-validation-for="CourseId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                <label for="imageFiles">Select Images:</label>
+                <input type="file" name="imageFiles" multiple class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
+
+            <h4>Existing Profile Pictures</h4>
+             <div>
+                @if (Model.StudentPhoto != null && Model.StudentPhoto.Count > 0)
+                {
+                    <ul>
+                        @foreach (var photo in Model.StudentPhoto)
+                        {
+                            <li>
+                                <img src="@Url.Content("~/images/" + photo.Student.ProfileID + "/" + photo.Student.Username + "/" + photo.ImageURL)" alt="Profile Picture" style="max-width: 200px;" />
+                                <a asp-controller="StudentPhotoes" asp-action="Delete" asp-route-id="@photo.Id">Delete Photo</a>
+                            </li>
+                            <br />
+                        } 
+                    </ul>
+                }
+                else
+                {
+                    <p>No profile pictures available.</p>
+                }
+            </div> 
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -85,5 +100,31 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        function deleteImage(imageId) {
+            if (confirm('Are you sure you want to delete this image?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete", "StudentPhotoes")/' + imageId,
+                    type: 'DELETE',
+                    success: function (result) {
+                        if (result.success) {
+                            // Remove the corresponding <li> element from the page
+                            $("#existingPhotos li").filter(function () {
+                                return $(this).find("button").data("id") == imageId;
+                            }).remove();
+                        } else {
+                            alert('Error deleting image.');
+                        }
+                    },
+                    error: function () {
+                        alert('Error deleting image.');
+                    }
+                });
+            }
+        }
+    </script>
 }
