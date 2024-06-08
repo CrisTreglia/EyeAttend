@@ -1,71 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\views\\students\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:views\\students\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\views\\students\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:views\\students\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 191,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Views\\Students\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Students\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Views\\Students\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Students\\Edit.cshtml",
-              "ViewState": "AQIAABkAAAAAAAAAAAAwwEcAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-05T19:12:35.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Views\\Students\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Students\\Details.cshtml",
-              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Views\\Students\\Details.cshtml",
-              "RelativeToolTip": "Views\\Students\\Details.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAFYAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-04T19:29:43.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentsController.cs",
-              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StudentsController.cs",
-              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentsController.cs",
-              "RelativeToolTip": "Controllers\\StudentsController.cs",
-              "ViewState": "AQIAALAAAAAAAAAAAAAAwPUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T18:46:50.997Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

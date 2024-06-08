@@ -182,7 +182,7 @@ namespace EyeAttend.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("Students", "Index");
+            return RedirectToAction("Index", "Students");
         }
 
         private bool StudentPhotoExists(int id)
