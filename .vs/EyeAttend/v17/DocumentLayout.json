@@ -1,12 +1,69 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\controllers\\studentphotoesapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:controllers\\studentphotoesapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\controllers\\studentsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:controllers\\studentsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|c:\\users\\crist\\onedrive\\documents\\softwaredevelopment\\eyeattend-master\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD50EC7-AE50-4F68-8B31-EAF9A8B9E004}|EyeAttend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 191,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentPhotoesApiController.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentPhotoesApiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentPhotoesApiController.cs",
+              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentPhotoesApiController.cs",
+              "RelativeToolTip": "Controllers\\StudentPhotoesApiController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T22:54:46.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentsApiController.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentsApiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentsApiController.cs",
+              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Controllers\\StudentsApiController.cs",
+              "RelativeToolTip": "Controllers\\StudentsApiController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T22:54:13.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\crist\\OneDrive\\Documents\\SoftwareDevelopment\\EyeAttend-master\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T22:37:35.629Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

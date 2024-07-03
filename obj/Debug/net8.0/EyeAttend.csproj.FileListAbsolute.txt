@@ -516,3 +516,11 @@ C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\scopedcss\projectbundle\EyeAttend.bundle.scp.css
 C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\EyeAttend.sourcelink.json
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\crist\OneDrive\Documents\SoftwareDevelopment\EyeAttend-master\obj\Debug\net8.0\EyeAttend.MvcApplicationPartsAssemblyInfo.cs
